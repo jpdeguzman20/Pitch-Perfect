@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        stopRecordingButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,10 +36,15 @@ class ViewController: UIViewController {
     @IBAction func recordAudio(_ sender: Any) {
         print("Record button was pressed")
         recordingLabel.text = "Recording in Progress"
+        stopRecordingButton.isEnabled = true
+        recordingButton.isEnabled = false
     }
     
     @IBAction func stopRecording(_ sender: Any) {
         print("Stop Recording button was pressed")
+        stopRecordingButton.isEnabled = false
+        recordingButton.isEnabled = true
+        recordingLabel.text = "Tap to Record"
     }
 }
 
